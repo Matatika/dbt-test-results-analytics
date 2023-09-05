@@ -34,7 +34,9 @@ Using Matatika you can run this example with only docker and we create all the f
 
 6. Run the `IMDB Data` Pipeline by clicking the Play button.
 
-This pipeline will bring in some example data from our example repo: [imdb_top_20_films.csv]https://github.com/Matatika/matatika-examples/blob/master/example_adding_a_custom_data_source/imdb_top_20_films.csv(), and create a dbt model. The model it created can be found in the `transforms/models` directory in this workspace. 
+This pipeline will bring in some example data from our example repo: [imdb_top_20_films.csv](https://github.com/Matatika/matatika-examples/blob/master/example_adding_a_custom_data_source/imdb_top_20_films.csv), and create a dbt model. 
+
+The model it created can be found in the `transforms/models` directory in this workspace. 
 
 We have also included some test for this model so everything in this example is easy to use and understand.
 
