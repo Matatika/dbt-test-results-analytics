@@ -40,7 +40,7 @@ The model it created can be found in the `transforms/models` directory in this w
 
 We have also included some test for this model so everything in this example is easy to use and understand.
 
-7. One the `IMDB Data` pipeline has completed, run the `Model Validation` pipeline.
+7. Once the `IMDB Data` pipeline has completed, run the `Model Validation` pipeline.
 
 This pipeline will run the dbt tests in your workspace, and store them as data in your workspace's database. Then using this data we build dbt models to report from.
 
