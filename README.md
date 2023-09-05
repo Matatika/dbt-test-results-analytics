@@ -26,7 +26,7 @@ Using Matatika you can run this example with only docker and we create all the f
 
 2. Clone this repository into the `matatika-ce/workspaces` directory
 
-3. Once Matatika CE is started and your workspace is deployed, login to the Lab [https://localhost:3443](https://localhost:3443)
+3. Once [Matatika CE](https://github.com/Matatika/matatika-ce) is started and your workspace is deployed, login to the Lab [https://localhost:3443](https://localhost:3443)
 
 4. Run the `IMDB Data` Pipeline by clicking the Play button.
 
