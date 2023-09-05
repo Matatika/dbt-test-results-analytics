@@ -1,0 +1,22 @@
+{
+  "plugin_type": "files",
+  "name": "analyze-dbt-artifacts",
+  "namespace": "tap_dbt_artifacts",
+  "variant": "matatika",
+  "label": "dbt Model Validation",
+  "repo": "https://github.com/Matatika/analyze-dbt-artifacts",
+  "pip_url": "git+https://github.com/Matatika/analyze-dbt-artifacts@v0.1.0",
+  "description": "Instant insights on your dbt test run results.",
+  "logo_url": "https://localhost:3443/assets/images/transformer/dbt.png",
+  "requires": {
+    "transforms": [
+      {
+        "name": "dbt-dbt-artifacts",
+        "variant": "matatika"
+      }
+    ]
+  },
+  "update": {
+    "*.yml": "true"
+  }
+}

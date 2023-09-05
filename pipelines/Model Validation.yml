@@ -1,0 +1,31 @@
+# This file is managed by the 'analyze-dbt-artifacts' file bundle and updated automatically when `meltano upgrade` is run.
+# To prevent any manual changes from being overwritten, remove the file bundle from `meltano.yml` or disable automatic updates:
+#     meltano config --plugin-type=files analyze-dbt-artifacts set _update pipelines/Model Validation.yml false
+
+version: pipelines/v0.1
+name: Model Validation
+timeout: 0
+script: |-
+  meltano install extractor tap-dbt-artifacts
+  meltano install loader target-postgres
+  meltano install transformer dbt
+
+  meltano invoke dbt deps
+
+  # disable pipeline fail on non 0 exit code for dbt test
+  # save exit code
+  # re-enable pipeline fail on non 0 exit code
+  set +e
+  meltano invoke dbt test
+  export dbt_test_exit_code=$?
+  set -e
+
+  meltano run tap-dbt-artifacts target-postgres
+  meltano invoke dbt run -m tap_dbt_artifacts
+
+  exit $dbt_test_exit_code
+data_components:
+- dbt
+- extractor/tap-dbt-artifacts
+- Warehouse
+

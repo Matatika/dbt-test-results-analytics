@@ -1,0 +1,39 @@
+# This file is managed by the 'analyze-dbt-artifacts' file bundle and updated automatically when `meltano upgrade` is run.
+# To prevent any manual changes from being overwritten, remove the file bundle from `meltano.yml` or disable automatic updates:
+#     meltano config --plugin-type=files analyze-dbt-artifacts set _update analyze/datasets/dbt-test-results/dbt_test_last_30_runs.yml false
+
+version: datasets/v0.2
+source: dbt tests
+title: dbt Test Results Last 30 Runs
+questions: What are the dbt test results for the last 30 runs?
+description: |-
+  dbt test results for the last 30 test runs.
+
+  #dbt-tests
+metadata: |-
+  {
+    "name": "fact_test_results",
+    "label": "Test Results", 
+    "related_table": {
+      "columns": [
+        {"name": "run_time", "label": "Tests Start Time", "description": "Tests Start Time"}
+      ],
+      "aggregates": [
+        {"name": "pass", "label": "Passed", "description": "Passed"}, 
+        {"name": "fail", "label": "Failed", "description": "Failed"}
+      ]
+    },
+    "palette": [[30, 255, 30],[255, 99, 132]]
+  }
+visualisation: '{"chartjs-chart": {"chartType": "bar"}}'
+query: |-
+  SELECT 
+    id "fact_test_results.id"
+    , SUM(CASE WHEN status = 'pass' THEN 1 ELSE 0 END) "fact_test_results.pass"
+    , SUM(CASE WHEN status = 'fail' THEN 1 ELSE 0 END) "fact_test_results.fail"
+    , COUNT(*) "fact_test_results.total_runs"
+    , TO_CHAR(MIN(timing_started_at::TIMESTAMP), 'YYYY-MM-DD HH24:MI:SS') "fact_test_results.run_time"
+  FROM fact_test_results
+  GROUP BY id
+  ORDER BY MIN(timing_started_at) ASC
+  LIMIT 30

@@ -1,0 +1,7 @@
+version: pipelines/v0.1
+name: Spotify Data
+timeout: 0
+data_components:
+- tap-spreadsheets-anywhere
+- Warehouse
+- dbt

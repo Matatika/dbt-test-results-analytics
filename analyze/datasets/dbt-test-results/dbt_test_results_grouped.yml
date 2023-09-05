@@ -1,0 +1,38 @@
+# This file is managed by the 'analyze-dbt-artifacts' file bundle and updated automatically when `meltano upgrade` is run.
+# To prevent any manual changes from being overwritten, remove the file bundle from `meltano.yml` or disable automatic updates:
+#     meltano config --plugin-type=files analyze-dbt-artifacts set _update analyze/datasets/dbt-test-results/dbt_test_results_grouped.yml false
+
+version: datasets/v0.2
+source: dbt tests
+title: dbt Test Results
+questions: What are the overall results from my dbt tests?
+description: |-
+  Grouped results of your dbt test run results.
+
+  #dbt-tests
+metadata: |-
+  {
+    "name": "vw_test_results_grouped",
+    "label": "Test Results", 
+    "related_table": {
+      "columns": [
+        {"name": "unique_id", "label": "Test Name", "description": "Test Name"}, 
+        {"name": "total_runs", "label": "Total Runs", "description": "Total Runs"},
+        {"name": "total_passes", "label": "Passes", "description": "Passes"},
+        {"name": "total_failures", "label": "Failures", "description": "Failures"}, 
+        {"name": "avg_execution_time", "label": "Avg. Execution Time", "description": "Avg. Execution Time"},
+        {"name": "last_run", "label": "Last Run", "description": "Last Run"}
+      ]
+    }
+  }
+visualisation: '{"html-table": {}}'
+query: |-
+  SELECT
+    "unique_id" "vw_test_results_grouped.unique_id"
+    , "total_runs" "vw_test_results_grouped.total_runs"
+    , "total_passes" "vw_test_results_grouped.total_passes"
+    , "total_failures" "vw_test_results_grouped.total_failures"
+    , "avg_execution_time" "vw_test_results_grouped.avg_execution_time"
+    , "last_run_time" "vw_test_results_grouped.last_run"
+  FROM vw_test_results_grouped
+  ORDER BY "total_runs" DESC, "unique_id" ASC

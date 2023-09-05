@@ -1,0 +1,49 @@
+{
+  "plugin_type": "utilities",
+  "name": "dbt-artifacts",
+  "namespace": "dbt_artifacts",
+  "variant": "matatika",
+  "label": "dbt Artifacts",
+  "docs": "https://www-localhost.matatika.com/data-details/dbt-artifacts/",
+  "repo": "https://github.com/Matatika/dbt-artifacts-ext",
+  "pip_url": "git+https://github.com/Matatika/dbt-artifacts-ext.git",
+  "executable": "dbt-artifacts_extension",
+  "description": "A tool for processing [dbt artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts).",
+  "logo_url": "https://localhost:3443/assets/logos/utilities/dbt.png",
+  "settings": [
+    {
+      "name": "source_dir",
+      "kind": "string",
+      "value": ".meltano/transformers/dbt/target",
+      "label": "Source directory",
+      "description": "Source directory for the dbt manifest.json and catalog.json to get your lineage from.",
+      "protected": false
+    },
+    {
+      "name": "output_dir",
+      "kind": "string",
+      "value": "output",
+      "label": "Output directory",
+      "description": "Target directory output.",
+      "protected": false
+    },
+    {
+      "name": "resource_types",
+      "kind": "array",
+      "value": "[\"source\",\"model\",\"snapshot\"]",
+      "label": "Resource types",
+      "description": "Array of which dbt artifact to process. 'source', 'model' and 'snapshot' are frequently used, and you can also use 'all' to get every artifact found.",
+      "protected": false
+    }
+  ],
+  "commands": {
+    "convert-matatika": {
+      "args": "convert --format matatika",
+      "description": "Convert artifacts to Matatika datasets."
+    },
+    "convert-mermaid": {
+      "args": "convert --format mermaid",
+      "description": "Convert artifacts to [Mermaid entity relationship diagrams](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)."
+    }
+  }
+}

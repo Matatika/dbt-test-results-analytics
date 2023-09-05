@@ -1,0 +1,26 @@
+{
+  "plugin_type": "transforms",
+  "name": "dbt-dbt-artifacts",
+  "namespace": "tap_dbt_artifacts",
+  "variant": "matatika",
+  "label": "dbt-dbt-artifacts",
+  "repo": "https://github.com/Matatika/dbt-tap-dbt-artifacts",
+  "pip_url": "https://github.com/Matatika/dbt-tap-dbt-artifacts@v0.1.0",
+  "requires": {
+    "extractors": [
+      {
+        "name": "tap-dbt-artifacts",
+        "variant": "matatika"
+      }
+    ],
+    "transformers": [
+      {
+        "name": "dbt",
+        "variant": "dbt-labs"
+      }
+    ]
+  },
+  "vars": {
+    "schema": "{{ env_var('DBT_SOURCE_SCHEMA') }}"
+  }
+}

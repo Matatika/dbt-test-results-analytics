@@ -1,0 +1,3 @@
+packages:
+- git: https://github.com/Matatika/dbt-tap-dbt-artifacts
+  revision: v0.1.0

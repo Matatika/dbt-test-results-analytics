@@ -1,0 +1,32 @@
+{
+  "plugin_type": "files",
+  "name": "analyze-dbt-models",
+  "namespace": "dbt",
+  "variant": "matatika",
+  "label": "dbt Model Lineage",
+  "repo": "https://github.com/Matatika/analyze-dbt-models",
+  "pip_url": "git+https://github.com/Matatika/analyze-dbt-models",
+  "description": "Instant insights on lineage of your dbt models.",
+  "logo_url": "https://localhost:3443/assets/images/transformer/dbt.png",
+  "requires": {
+    "utilities": [
+      {
+        "name": "matatika",
+        "variant": "matatika"
+      },
+      {
+        "name": "dbt-artifacts",
+        "variant": "matatika"
+      }
+    ],
+    "transformers": [
+      {
+        "name": "dbt",
+        "variant": "dbt-labs"
+      }
+    ]
+  },
+  "update": {
+    "*.yml": "true"
+  }
+}

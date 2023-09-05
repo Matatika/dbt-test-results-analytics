@@ -1,0 +1,27 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-spreadsheets-anywhere",
+  "namespace": "tap_spreadsheets_anywhere",
+  "variant": "matatika",
+  "label": "Spreadsheets Anywhere",
+  "docs": "https://www-localhost.matatika.com/data-details/tap-spreadsheets-anywhere/",
+  "repo": "https://github.com/Matatika/tap-spreadsheets-anywhere",
+  "pip_url": "git+https://github.com/Matatika/tap-spreadsheets-anywhere@v0.2.0",
+  "description": "Spreadsheets Anywhere is a software tool that allows users to create and edit spreadsheets on any device with internet access.\n\nSpreadsheets Anywhere is a cloud-based software tool that enables users to create and edit spreadsheets on any device with internet access, including desktop computers, laptops, tablets, and smartphones. The tool offers a range of features, including the ability to import and export data, create charts and graphs, and collaborate with others in real-time. Users can also customize their spreadsheets with a variety of formatting options and formulas, and can access their files from anywhere with an internet connection. With Spreadsheets Anywhere, users can streamline their workflow and increase productivity by eliminating the need for multiple software programs or devices.\n### Prerequisites\nTo obtain the Tables required setting for connecting to Spreadsheets Anywhere, you need to have access to the spreadsheet that you want to connect to. Once you have access, you can identify the name of the table or tables that you want to connect to. The table name should be entered in the appropriate field when setting up the connection to Spreadsheets Anywhere.",
+  "logo_url": "https://localhost:3443/assets/images/datasource/tap-spreadsheets-anywhere.png",
+  "capabilities": [
+    "catalog",
+    "discover",
+    "state"
+  ],
+  "settings": [
+    {
+      "name": "tables",
+      "kind": "array",
+      "label": "Tables",
+      "description": "A setting in Spreadsheets Anywhere that allows users to select which tables they want to connect to and use in their application.",
+      "protected": false,
+      "required": "true"
+    }
+  ]
+}

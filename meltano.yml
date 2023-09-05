@@ -1,0 +1,44 @@
+version: 1
+default_environment: dev
+project_id: 07b42b11-401b-42ca-98a3-b1392de54a45
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-dbt-artifacts
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/tap-dbt-artifacts.git@v0.1.0
+  - name: tap-spreadsheets-anywhere
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/tap-spreadsheets-anywhere@v0.2.0
+  loaders:
+  - name: target-postgres
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/pipelinewise-target-postgres@v0.1.0
+  transforms:
+  - name: dbt-dbt-artifacts
+    variant: matatika
+    pip_url: https://github.com/Matatika/dbt-tap-dbt-artifacts@v0.1.0
+  transformers:
+  - name: dbt
+    variant: dbt-labs
+    pip_url: "dbt-core~=1.3.0 dbt-postgres~=1.3.0 dbt-snowflake~=1.3.0\n"
+  files:
+  - name: files-dbt
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/files-dbt@v1.0.x.1
+  - name: analyze-dbt-artifacts
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/analyze-dbt-artifacts@v0.1.0
+  - name: analyze-dbt-models
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/analyze-dbt-models
+  utilities:
+  - name: matatika
+    variant: matatika
+    pip_url: matatika==1.15.1
+  - name: dbt-artifacts
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/dbt-artifacts-ext.git

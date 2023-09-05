@@ -1,0 +1,7 @@
+# This file is managed by the 'analyze-dbt-models' file bundle and updated automatically when `meltano upgrade` is run.
+# To prevent any manual changes from being overwritten, remove the file bundle from `meltano.yml` or disable automatic updates:
+#     meltano config --plugin-type=files analyze-dbt-models set _update analyze/channels/dbt models.yml false
+
+version: channels/v0.1
+description: dbt models
+picture: https://app.matatika.com/assets/logos/utilities/dbt.png

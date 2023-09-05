@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: vw_avg_film_stats
+    description: View of the average rating and release year of the top 20 films data set.
+    columns:
+      - name: count_films
+        description: Total number of films we are averaging over
+        tests:
+          - not_null
+      - name: avg_rating
+        description: Average rating over all films
+        tests:
+          - not_null
+      - name: avg_release_year
+        description: Average release year over all films
+        tests:
+          - not_null

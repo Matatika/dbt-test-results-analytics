@@ -1,0 +1,53 @@
+{
+  "plugin_type": "utilities",
+  "name": "matatika",
+  "namespace": "utility_matatika",
+  "variant": "matatika",
+  "label": "Matatika CLI",
+  "docs": "https://www-localhost.matatika.com/data-details/matatika/",
+  "pip_url": "matatika==1.15.1",
+  "description": "Matatika CLI is a command-line interface tool for managing data science projects.\n\nMatatika CLI is a powerful tool that allows data scientists to manage their projects from the command line. With Matatika CLI, users can create and manage projects, upload and download data, and run experiments and analyses. The tool also provides version control and collaboration features, making it easy for teams to work together on projects. Matatika CLI is designed to be flexible and customizable, allowing users to tailor it to their specific needs. Overall, Matatika CLI is a valuable tool for any data scientist looking to streamline their workflow and improve their productivity.\n### Prerequisites\nThe dataset path is the location of the dataset you want to work with in Matatika CLI. To obtain the dataset path, you need to know where the dataset is stored in your Matatika account. You can find the dataset path by navigating to the dataset in the Matatika web interface and copying the path from the address bar of your web browser. Alternatively, you can use the `matatika datasets list` command in the Matatika CLI to list all the datasets in your account and their paths.",
+  "logo_url": "https://localhost:3443/assets/images/utility/matatika.png",
+  "settings": [
+    {
+      "name": "dataset_path",
+      "kind": "string",
+      "label": "Dataset Path",
+      "description": "Mandatory - The path to a dataset to publish to your workspace. This need to be the a Matatika dataset that is present in your workspace's repository.",
+      "protected": false
+    },
+    {
+      "name": "auth_token",
+      "env": "AUTH_TOKEN",
+      "kind": "string",
+      "value": "$AUTH_TOKEN",
+      "label": "Auth Token",
+      "description": "A unique token used to authenticate the user and grant access to the Matatika workspace.",
+      "protected": false
+    },
+    {
+      "name": "workspace_id",
+      "env": "WORKSPACE_ID",
+      "kind": "string",
+      "value": "$WORKSPACE_ID",
+      "label": "Workspace ID",
+      "description": "The unique identifier for the Matatika workspace.",
+      "protected": false
+    },
+    {
+      "name": "endpoint_url",
+      "env": "ENDPOINT_URL",
+      "kind": "string",
+      "value": "$ENDPOINT_URL",
+      "label": "Endpoint URL",
+      "description": "The URL used to connect to the Matatika API.",
+      "protected": false
+    }
+  ],
+  "commands": {
+    "publish": {
+      "args": "publish $MATATIKA_DATASET_PATH",
+      "description": "Publish a matatika dataset."
+    }
+  }
+}

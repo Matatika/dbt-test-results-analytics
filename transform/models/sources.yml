@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: imdb_source
+    schema: "{{ env_var('DBT_TARGET_SCHEMA') }}"
+    description: Data synced from the imdb top 20 csv file
+    tables:
+      - name: imdb_top_20_films
+        description: Source table for imdb top 20 data

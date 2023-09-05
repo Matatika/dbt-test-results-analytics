@@ -1,0 +1,26 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-dbt-artifacts",
+  "namespace": "tap_dbt_artifacts",
+  "variant": "matatika",
+  "label": "dbt Artifacts",
+  "docs": "https://www-localhost.matatika.com/data-details/tap-dbt-artifacts/",
+  "repo": "https://github.com/Matatika/tap-dbt-artifacts",
+  "pip_url": "git+https://github.com/Matatika/tap-dbt-artifacts.git@v0.1.0",
+  "description": "dbt Artifacts can contain useful metadata. Using this tap you can put that metadata into a target so you can analyze it.",
+  "logo_url": "https://localhost:3443/assets/logos/extractors/dbt-artifacts.png",
+  "capabilities": [
+    "catalog",
+    "discover"
+  ],
+  "settings": [
+    {
+      "name": "dbt_target_dir",
+      "kind": "string",
+      "value": ".meltano/transformers/dbt/target",
+      "label": "dbt Target Dir",
+      "description": "The directory where dbt will write compiled SQL files and other artifacts.",
+      "protected": false
+    }
+  ]
+}
