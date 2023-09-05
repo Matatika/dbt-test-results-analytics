@@ -1,0 +1,17 @@
+version: pipelines/v0.1
+name: IMDB Data
+timeout: 0
+script: |-
+  meltano install extractor tap-spreadsheets-anywhere
+  meltano install loader target-postgres
+  meltano install transformer dbt
+
+  meltano invoke dbt deps
+
+  meltano run tap-spreadsheets-anywhere target-postgres
+  meltano invoke dbt run -m vw_avg_film_stats
+data_components:
+- extractors/tap-spreadsheets-anywhere
+- Warehouse
+- dbt
+properties: {"tap-spreadsheets-anywhere.tables": "[{\"path\":\"https://raw.githubusercontent.com/Matatika/matatika-examples/master/example_adding_a_custom_data_source\",\"name\":\"imdb_top_20_films\",\"pattern\":\"imdb_top_20_films.csv\",\"start_date\":\"2021-01-01T00:00:00Z\",\"key_properties\":[\"rank\"],\"format\":\"csv\"}]"}
