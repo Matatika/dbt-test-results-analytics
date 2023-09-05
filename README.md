@@ -22,29 +22,25 @@ Using Matatika you can run this example with only docker and we create all the f
 
 ### Steps
 
-1. [Clone the Matatika CE](https://github.com/Matatika/matatika-ce)
+1. [Clone and start Matatika CE](https://github.com/Matatika/matatika-ce#how-to-get-started)
 
 2. Clone this repository into the `matatika-ce/workspaces` directory
 
-3. Start Matatika CE, by running `userID=$(id -u) groupID=$(id -g) docker-compose up` in the root `matatika-ce` directory
+3. Once Matatika CE is started and your workspace is deployed, login to the Lab [https://localhost:3443](https://localhost:3443)
 
-4. After a few minutes of setup, (only on your first start up), open up [https://localhost:3443](https://localhost:3443)
+4. Run the `IMDB Data` Pipeline by clicking the Play button.
 
-5. You will now see the tasks screen. Click `Go to Lab` in the top right.
+    This pipeline will bring in some example data from our example repo: [imdb_top_20_films.csv](https://github.com/Matatika/matatika-examples/blob/master/example_adding_a_custom_data_source/imdb_top_20_films.csv), and create a dbt model. 
 
-6. Run the `IMDB Data` Pipeline by clicking the Play button.
+    The model it created can be found in the `transforms/models` directory in this workspace. 
 
-This pipeline will bring in some example data from our example repo: [imdb_top_20_films.csv](https://github.com/Matatika/matatika-examples/blob/master/example_adding_a_custom_data_source/imdb_top_20_films.csv), and create a dbt model. 
+    We have also included some test for this model so everything in this example is easy to use and understand.
 
-The model it created can be found in the `transforms/models` directory in this workspace. 
+5. Once the `IMDB Data` pipeline has completed, run the `Model Validation` pipeline.
 
-We have also included some test for this model so everything in this example is easy to use and understand.
+    This pipeline will run the dbt tests in your workspace, and store them as data in your workspace's database. Then using this data we build dbt models to report from.
 
-7. Once the `IMDB Data` pipeline has completed, run the `Model Validation` pipeline.
-
-This pipeline will run the dbt tests in your workspace, and store them as data in your workspace's database. Then using this data we build dbt models to report from.
-
-8. Once the `Model Validation` pipeline is complete, in the bottom left click `Switch To App` to see insights into your dbt test results.
+6. Once the `Model Validation` pipeline is complete, in the bottom left click `Switch To App` to see insights into your dbt test results.
 
 ---
 
