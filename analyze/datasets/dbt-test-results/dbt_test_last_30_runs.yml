@@ -25,7 +25,21 @@ metadata: |-
     },
     "palette": [[30, 255, 30],[255, 99, 132]]
   }
-visualisation: '{"chartjs-chart": {"chartType": "bar"}}'
+visualisation: |-
+  {"chartjs-chart": 
+    {"chartType": "bar",
+      "options": {
+        "scales": {
+          "y": {
+            "beginAtZero": true,
+            "ticks": {
+              "stepSize": 1
+            }
+          }
+        }
+      }
+    }
+  }
 query: |-
   SELECT 
     id "fact_test_results.id"
