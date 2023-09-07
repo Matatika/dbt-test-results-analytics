@@ -2,6 +2,8 @@
 
 This example Meltano project, built as a Matatika workspace for the [Matatika CE](https://github.com/Matatika/matatika-ce), is a quick and easy way to get started with insights into your dbt test results.
 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/KLX4sNqvVIk/3.jpg)](https://www.youtube.com/watch?v=KLX4sNqvVIk "Matatika GitHub Analytics Project")
+
 ---
 
 ## Prerequisites
