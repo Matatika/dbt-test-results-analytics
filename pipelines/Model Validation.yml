@@ -6,9 +6,7 @@ version: pipelines/v0.1
 name: Model Validation
 timeout: 0
 script: |-
-  meltano install extractor tap-dbt-artifacts
-  meltano install loader target-postgres
-  meltano install transformer dbt
+  meltano install - tap-dbt-artifacts target-postgres dbt
 
   meltano invoke dbt deps
 

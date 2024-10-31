@@ -23,7 +23,8 @@
     },
     {
       "name": "password",
-      "kind": "password",
+      "kind": "string",
+      "sensitive": true,
       "label": "Password",
       "description": "The password used to authenticate the user.",
       "protected": false,
@@ -71,7 +72,8 @@
     },
     {
       "name": "ssl",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "value": false,
       "label": "SSL",
       "description": "Whether or not to use SSL encryption when connecting to the Postgres Warehouse.",
@@ -88,7 +90,8 @@
     },
     {
       "name": "underscore_camel_case_fields",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "value": true,
       "label": "Underscore Camel Case Fields",
       "description": "Whether or not to convert field names from camel case to underscore-separated format.",
@@ -96,7 +99,8 @@
     },
     {
       "name": "flush_all_streams",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "value": false,
       "label": "Flush All Streams",
       "description": "Whether or not to flush all streams to the Postgres Warehouse before closing the connection.",
@@ -104,7 +108,8 @@
     },
     {
       "name": "parallelism",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "value": 0,
       "label": "Parallelism",
       "description": "The number of threads to use when writing data to the Postgres Warehouse.",
@@ -112,7 +117,8 @@
     },
     {
       "name": "parallelism_max",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "value": 16,
       "label": "Max Parallelism",
       "description": "The maximum number of threads to use when writing data to the Postgres Warehouse.",
@@ -120,21 +126,24 @@
     },
     {
       "name": "default_target_schema_select_permission",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "label": "Default Target Schema Select Permission",
       "description": "The permission level required to select data from the default target schema.",
       "protected": false
     },
     {
       "name": "schema_mapping",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "label": "Schema Mapping",
       "description": "A mapping of source schema names to target schema names.",
       "protected": false
     },
     {
       "name": "add_metadata_columns",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "value": true,
       "label": "Add Metadata Columns",
       "description": "Whether or not to add metadata columns to the target table.",
@@ -142,7 +151,8 @@
     },
     {
       "name": "hard_delete",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "value": false,
       "label": "Hard Delete",
       "description": "Whether or not to perform hard deletes when deleting data from the Postgres Warehouse.",
@@ -150,7 +160,8 @@
     },
     {
       "name": "data_flattening_max_level",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "value": 10,
       "label": "Data Flattening Max Level",
       "description": "The maximum level of nested data structures to flatten when writing data to the Postgres Warehouse.",
@@ -174,7 +185,8 @@
     },
     {
       "name": "temp_dir",
-      "kind": "hidden",
+      "kind": "string",
+      "hidden": true,
       "label": "Temporary Directory",
       "description": "The directory to use for temporary files when writing data to the Postgres Warehouse.",
       "protected": false

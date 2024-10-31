@@ -2,9 +2,7 @@ version: pipelines/v0.1
 name: IMDB Data
 timeout: 0
 script: |-
-  meltano install extractor tap-spreadsheets-anywhere
-  meltano install loader target-postgres
-  meltano install transformer dbt
+  meltano install - tap-spreadsheets-anywhere target-postgres dbt
 
   meltano invoke dbt deps
 
